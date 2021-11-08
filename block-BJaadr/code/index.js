@@ -1,35 +1,94 @@
 // NOTE: You can only use the (reduce) array method to solve this exercise:
 
 function countAllPeople() {
-  // your code goes here
+  let count = 0;
+  let totalCount = got.houses.reduce((a,b)=> {
+    count += b.people.length;
+    return count;
+  },0)
+  console.log(totalCount);
 }
 
 function peopleByHouses() {
-  // your code goes here
+  got.houses.forEach((element) => {   
+    let house = {houseName: [], houseMembers: []};
+    house.houseName = element.name;
+    house.houseMembers = element.people.reduce((a,b)=>{
+      return house.houseMembers.push(b.name);
+    },0);
+    console.log(house)
+  });
 }
 
 function everyone() {
-  // your code goes here
+  let house = [];
+  got.houses.forEach((element) => {   
+    house = element.people.reduce((a,b)=>{
+        house.push(b.name);
+       return house;
+    },0);  
+  });
+  return house;
 }
 
 function nameWithS() {
-  // your code goes here
+  let house = [];
+  got.houses.forEach((element) => {   
+    house = element.people.reduce((a,b)=>{
+      if(b.name.includes('s') || b.name.includes('S'))
+        house.push(b.name);
+       return house;
+    },0);  
+  });
+  return house;
 }
 
 function nameWithA() {
-  // your code goes here
+  let house = [];
+  got.houses.forEach((element) => {   
+    house = element.people.reduce((a,b)=>{
+      if(b.name.includes('a') || b.name.includes('A'))
+        house.push(b.name);
+       return house;
+    },0);  
+  });
+  return house;
 }
 
 function surnameWithS() {
-  // your code goes here
+  let house = [];
+  got.houses.forEach((element) => {   
+    house = element.people.reduce((a,b)=>{
+      if(b.name.includes('S',1))
+        house.push(b.name);
+       return house;
+    },0);  
+  });
+  return house;
 }
 
 function surnameWithA() {
-  // your code goes here
+  let house = [];
+  got.houses.forEach((element) => {   
+    house = element.people.reduce((a,b)=>{
+      if(b.name.includes('A',1))
+        house.push(b.name);
+       return house;
+    },0);  
+  });
+  return house;
 }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+  got.houses.forEach((element) => {   
+    let house = {houseName: [], houseMembers: []};
+    house.houseName = element.name;
+    house.houseMembers = element.people.reduce((a,b)=>{
+       house.houseMembers.push(b.name);
+      return house.houseMembers;
+    },0);
+    console.log(house)
+  });
 }
 
 // Testing your result after writing your function
